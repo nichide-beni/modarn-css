@@ -1,0 +1,194 @@
+/* ==========================================
+  Variables & Base Settings
+  ========================================== */
+:root {
+  --base-font-size: 1.4rem;
+  --container-padding: 1.5rem;
+  --section-margin: 5.0rem;
+  --content-margin: 2.0rem;
+  --grid-gap: 2.0rem;
+}
+
+@media (min-width: 769px) {
+  :root {
+    --base-font-size: 1.6rem;
+    --container-padding: 3.0rem;
+    --section-margin: 8.0rem;
+    --content-margin: 5.0rem;
+    --grid-gap: 3.0rem;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: var(--base-font-size);
+  line-height: 1.6;
+  color: #333;
+  font-family: sans-serif;
+}
+
+/* ==========================================
+  Layout Components
+  ========================================== */
+.container {
+  max-width: calc(100rem + (var(--container-padding) * 2));
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 769px) {
+  .layout-wrapper {
+    flex-direction: row;
+    gap: 4.0rem;
+  }
+}
+
+/* ==========================================
+  Main & Sidebar
+  ========================================== */
+.main-content {
+  flex: 1;
+}
+
+.sidebar {
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    width: 25.0rem;
+    position: sticky;
+    top: 2.0rem;
+    height: fit-content;
+  }
+}
+
+section {
+  margin-bottom: var(--section-margin);
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: var(--content-margin);
+  border-left: 0.4rem solid #d32f2f;
+  padding-left: 1.0rem;
+}
+
+/* ==========================================
+  Header & Footer
+  ========================================== */
+.header {
+  background: #222;
+  color: #fff;
+  padding-block: 2.0rem;
+  margin-bottom: var(--section-margin);
+}
+
+.footer {
+  background: #222;
+  color: #fff;
+  padding-block: 3.0rem;
+  text-align: center;
+  margin-top: var(--section-margin);
+}
+
+.sidebar nav ul {
+  list-style: none;
+  background: #f4f4f4;
+  padding: 2.0rem;
+}
+
+.sidebar nav li {
+  margin-bottom: 1.0rem;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* ==========================================
+  Contents
+  ========================================== */
+
+.news-list {
+  padding-left: 1em;
+}
+
+.blog-grid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 769px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* カード本体 */
+.blog-card {
+  display: grid;
+  /* 各要素の高さをコンテンツに合わせる(カードごとに高さが異なる状態を作る) */
+  grid-template-rows: auto auto 1fr auto; 
+  row-gap: 1.5rem;
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: 0 .4rem 1.2rem rgba(0, 0, 0, 0.1);
+  border-radius: .8px;
+}
+
+/* 画像の制御 */
+.blog-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: .5rem;
+}
+
+.blog-title {
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+.blog-text {
+  font-size: 1.0m;
+  color: #666;
+}
+
+/* ボタンのデザイン */
+.blog-btn-wrapper {
+  text-align: center;
+  margin-top: auto;
+}
+
+.blog-btn {
+  display: inline-block;
+  background: #d32f2f;
+  color: #fff;
+  padding: 1.0rem 2.0rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.4em;
+  transition: background 0.3s ease;
+}
+
+.blog-btn:hover {
+  background: #b71c1c;
+}

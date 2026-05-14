@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>グリッドエリア | cssの便利なプロパティを学ぼう</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      section {
+        margin-block: 5rem;
+      }
+
+      .container {
+        display: grid;
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+        grid-template-areas:
+          "header"
+          "side"
+          "main"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+
+      .header { grid-area: header; background: #2c3e50; color: white; padding: 20px; }
+      .main   { grid-area: main;   background: #fff; border: 1px solid #ddd; padding: 20px; }
+      .side   { grid-area: side;   background: #f4f4f4; padding: 20px; }
+      .footer { grid-area: footer; background: #333; color: white; text-align: center; padding: 10px; }
+
+      body { font-family: sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
+      nav ul { display: flex; list-style: none; gap: 15px; padding: 0; }
+      nav a { color: white; text-decoration: none; font-weight: bold; }
+      .ad-box { background: #e74c3c; color: white; padding: 15px; margin-bottom: 10px; text-align: center; font-size: 0.9em; }
+
+      @media (min-width: 769px) {
+        .container {
+          grid-template-areas:
+            "header header"
+            "main side"
+            "footer footer";
+          grid-template-columns: 1fr 250px; /* メインを広く、サイドを固定幅に */
+        }
+      }
+    </style>
+</head>
+<body>
+  <h1>エリアでレスポンシブ</h1>
+
+  <div class="container">
+    <header class="header">
+      <h1>株式会社SEIZO</h1>
+      <nav>
+        <ul>
+          <li><a href="#">TOP</a></li>
+          <li><a href="#news">お知らせ</a></li>
+          <li><a href="#about">私たちについて</a></li>
+          <li><a href="#services">事業内容</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <aside class="side">
+      <div class="ad-box">
+        <p>【求人】一緒に働く仲間を募集中！</p>
+      </div>
+      <div class="ad-box">
+        <p>【展示会】メカトロテック2026に出展決定</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section id="news">
+        <h2>お知らせ一覧</h2>
+        <ul>
+          <li>2026.05.14 - 新型プレス機を導入しました。</li>
+          <li>2026.04.20 - ゴールデンウィーク休業のお知らせ。</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <section id="about">
+        <h2>私たちについて</h2>
+        <p>創業50年、精密金属加工のプロフェッショナルとして、日本のものづくりを支えています。</p>
+      </section>
+
+      <hr>
+
+      <section id="services">
+        <h2>事業内容</h2>
+        <p>自動車部品の製造、金型設計、試作開発など、幅広いニーズにお応えします。</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 SEIZO Inc. All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
