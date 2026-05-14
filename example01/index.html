@@ -7,10 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header class="header">
-        <div class="container">
+        <div class="container header-inner">
             <h1>DDD(Drive! Drive Drive!)</h1>
+            <div class="controls">
+                <div class="control-group">
+                    <button onclick="document.body.classList.remove('is-large')">中</button>
+                    <button onclick="document.body.classList.add('is-large')">大</button>
+                </div>
+                <div class="control-group">
+                    <button onclick="document.body.classList.remove('is-dark')">白</button>
+                    <button onclick="document.body.classList.add('is-dark')">黒</button>
+                </div>
+            </div>
         </div>
     </header>
 
